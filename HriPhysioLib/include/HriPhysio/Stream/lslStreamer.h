@@ -19,7 +19,7 @@
 #include <string>
 #include <vector>
 
-#include <lsl_cpp.h>
+#include <HriPhysio/Stream/lsl_cpp.h>
 
 #include <HriPhysio/Stream/streamerInterface.h>
 

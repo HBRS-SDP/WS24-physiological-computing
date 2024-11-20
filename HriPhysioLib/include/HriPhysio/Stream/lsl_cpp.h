@@ -26,7 +26,7 @@
 #include <vector>
 
 extern "C" {
-#include "lsl_c.h"
+#include <HriPhysio/Stream/lsl_c.h>
 }
 
 namespace lsl {
