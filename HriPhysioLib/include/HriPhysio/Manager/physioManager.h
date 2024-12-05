@@ -22,12 +22,12 @@
 
 #include <yaml-cpp/yaml.h>
 
-#include <HriPhysio/Manager/threadManager.h>
-#include <HriPhysio/Stream/streamerInterface.h>
-#include <HriPhysio/Stream/csvStreamer.h>
+#include "HriPhysio/Manager/threadManager.h"
+#include "HriPhysio/Stream/streamerInterface.h"
+#include "HriPhysio/Stream/csvStreamer.h"
 
-#include <HriPhysio/Core/ringBuffer.h>
-#include <HriPhysio/helpers.h>
+#include "HriPhysio/Core/ringBuffer.h"
+#include "HriPhysio/helpers.h"
 
 namespace hriPhysio {
     namespace Manager {

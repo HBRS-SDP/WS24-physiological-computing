@@ -19,7 +19,7 @@
 #include <string>
 #include <vector>
 
-#include <HriPhysio/helpers.h>
+#include "HriPhysio/helpers.h"
 
 namespace hriPhysio {
     namespace Stream {
