@@ -10,7 +10,7 @@
  * ================================================================================
  */
 
-#include <HriPhysio/Processing/biquadratic.h>
+#include "HriPhysio/Processing/biquadratic.h"
 
 using namespace hriPhysio::Processing;
 

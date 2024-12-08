@@ -11,23 +11,36 @@ set(LIBRARY_TARGET_NAME ${PROJECT_NAME})
 # List of CPP (source) library files.
 
 set(${LIBRARY_TARGET_NAME}_SRC
-    src/biquadratic.cpp
-    src/butterworthBandNoch.cpp
-    src/butterworthBandPass.cpp
-    src/butterworthHighPass.cpp
-    src/butterworthLowPass.cpp
-    src/csvStreamer.cpp
-    src/graph.cpp
+    # Core
+    src/Core/graph.cpp
+
+    # Factory
+    src/Factory/streamerFactory.cpp
+
+    # Manager
+    src/Manager/robotManager.cpp
+    src/Manager/threadManager.cpp
+    src/Manager/physioManager.cpp
+
+    # Processing
+    src/Processing/biquadratic.cpp
+    src/Processing/butterworthBandNoch.cpp
+    src/Processing/butterworthBandPass.cpp
+    src/Processing/butterworthHighPass.cpp
+    src/Processing/butterworthLowPass.cpp
+    src/Processing/hilbertTransform.cpp
+    src/Processing/spectrogram.cpp
+
+    # Social
+    src/Social/robotInterface.cpp
+
+    # Stream
+    src/Stream/streamerInterface.cpp
+    src/Stream/lslStreamer.cpp
+    src/Stream/csvStreamer.cpp
+
+    # HELPERS
     src/helpers.cpp
-    src/hilbertTransform.cpp
-    src/lslStreamer.cpp
-    src/physioManager.cpp
-    src/robotInterface.cpp
-    src/robotManager.cpp
-    src/spectrogram.cpp
-    src/streamerFactory.cpp
-    src/streamerInterface.cpp
-    src/threadManager.cpp
 )
 
 
@@ -81,7 +94,7 @@ if( ENABLE_YARP )
     
 
     list(APPEND ${LIBRARY_TARGET_NAME}_SRC
-        src/yarpStreamer.cpp
+        src/Stream/yarpStreamer.cpp
     )
 
     list(APPEND ${LIBRARY_TARGET_NAME}_HDR
@@ -99,7 +112,7 @@ if( ENABLE_ROS )
 
 
     list(APPEND ${LIBRARY_TARGET_NAME}_SRC
-        src/rosStreamer.cpp
+        src/Stream/rosStreamer.cpp
     )
     
     list(APPEND ${LIBRARY_TARGET_NAME}_HDR

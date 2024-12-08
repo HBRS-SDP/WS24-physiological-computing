@@ -19,11 +19,11 @@
 #include <string>
 #include <vector>
 
-#include <lsl_cpp.h>
+#include "HriPhysio/Stream/lsl_cpp.h"
 
-#include <HriPhysio/Stream/streamerInterface.h>
+#include "HriPhysio/Stream/streamerInterface.h"
 
-#include <HriPhysio/helpers.h>
+#include "HriPhysio/helpers.h"
 
 namespace hriPhysio {
     namespace Stream {

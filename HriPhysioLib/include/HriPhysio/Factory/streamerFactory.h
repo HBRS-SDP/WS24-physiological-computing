@@ -15,8 +15,8 @@
 
 #include <string>
 
-#include <HriPhysio/Stream/streamerInterface.h>
-#include <HriPhysio/Stream/lslStreamer.h>
+#include "HriPhysio/Stream/streamerInterface.h"
+#include "HriPhysio/Stream/lslStreamer.h"
 
 #ifdef WITH_ROS
 #include <HriPhysio/Stream/ros/rosStreamer.h>
