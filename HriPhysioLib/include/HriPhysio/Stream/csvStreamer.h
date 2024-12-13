@@ -25,7 +25,7 @@
 
 #include <fmt/core.h>
 
-#include <HriPhysio/Stream/streamerInterface.h>
+#include "HriPhysio/Stream/streamerInterface.h"
 
 #include <HriPhysio/helpers.h>
 
