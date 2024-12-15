@@ -30,64 +30,59 @@ using namespace hriPhysio::Processing;
 Biquadratic::Biquadratic(const unsigned int rate, const double width/*=0.0*/) : 
     sampling_rate(rate),
     band_width(width),
-    center_frequency(0.0) {
-    
+    center_frequency(0.0),
+    a0(0.0), a1(0.0), a2(0.0), b1(0.0), b2(0.0) { // Initialize coefficients
 }
-
 
 void Biquadratic::filter(const double* source, double* target, const std::size_t numSamples, const double freq) {
-
     if (center_frequency != freq) {
         updateCoefficients(freq);
-        center_frequency = freq;  //-- Cache the cf used to prevent recalculating coeff.  
+        center_frequency = freq;
     }
-
+    
     //-- Filter the signal.
     bilinearTransformation(source, target, numSamples);
-
-    return;
 }
-
 
 void Biquadratic::setSamplingRate(const unsigned int rate) {
-    
     sampling_rate = rate;
     center_frequency = 0.0; //-- Reset cf to force recalculation of coeff.
-    
-    return;
 }
-
 
 void Biquadratic::setBandWidth(const double width) {
-    
     band_width = width;
     center_frequency = 0.0; //-- Reset cf to force recalculation of coeff.
-
-    return;
 }
-
 
 void Biquadratic::bilinearTransformation(const double* source, double* target, const std::size_t numSamples) {
-    
     //-- Filter buffer.
-	double p0i = 0.0, p1i = 0.0, p2i = 0.0;
-	double p0o = 0.0, p1o = 0.0, p2o = 0.0;
+    double p0i = 0.0, p1i = 0.0, p2i = 0.0;
+    double p0o = 0.0, p1o = 0.0, p2o = 0.0;
 
-	/* ============================================================================
-	**  Begin running the single bilinear transform on the provided input data.
-	**  The resulting filtered data is stored in the provided double array.
-	** ============================================================================ */
+    /* ============================================================================
+    **  Begin running the single bilinear transform on the provided input data.
+    **  The resulting filtered data is stored in the provided double array.
+    ** ============================================================================ */
 
-	for (std::size_t sample = 0; sample < numSamples; sample++) {
+    // Use std::vector to avoid pointer arithmetic
+    std::vector<double> source_vec(source, source + numSamples);
+    std::vector<double> target_vec(target, target + numSamples);
 
-		p0i = source[sample];
-		p0o = (a0*p0i + a1*p1i + a2*p2i) - (b2*p2o + b1*p1o);
+    for (std::size_t sample = 0; sample < numSamples; sample++) {
+        p0i = source_vec[sample];
+        p0o = (a0 * p0i + a1 * p1i + a2 * p2i) - (b2 * p2o + b1 * p1o);
 
-		p2i = p1i; p1i = p0i;
-		p2o = p1o; p1o = p0o;
+        // Update the filter history
+        p2i = p1i;
+        p1i = p0i;
+        p2o = p1o;
+        p1o = p0o;
 
-		target[sample] = p0o;
-	}
+        target_vec[sample] = p0o;
+    }
 
-    return;
+    // Optionally copy the result back to the original target array
+    std::copy(target_vec.begin(), target_vec.end(), target);
 }
+
+
