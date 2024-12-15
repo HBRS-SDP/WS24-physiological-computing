@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/HriPhysio.dir/src/Core/graph.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Core/graph.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Factory/streamerFactory.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Factory/streamerFactory.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Manager/physioManager.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Manager/physioManager.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Manager/robotManager.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Manager/robotManager.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Manager/threadManager.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Manager/threadManager.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Processing/biquadratic.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Processing/biquadratic.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Processing/butterworthBandNoch.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Processing/butterworthBandNoch.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Processing/butterworthBandPass.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Processing/butterworthBandPass.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Processing/butterworthHighPass.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Processing/butterworthHighPass.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Processing/butterworthLowPass.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Processing/butterworthLowPass.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Processing/hilbertTransform.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Processing/hilbertTransform.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Processing/spectrogram.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Processing/spectrogram.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Social/robotInterface.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Social/robotInterface.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Stream/csvStreamer.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Stream/csvStreamer.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Stream/lslStreamer.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Stream/lslStreamer.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/Stream/streamerInterface.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/Stream/streamerInterface.cpp.o.d"
+  "CMakeFiles/HriPhysio.dir/src/helpers.cpp.o"
+  "CMakeFiles/HriPhysio.dir/src/helpers.cpp.o.d"
+  "libHriPhysio.a"
+  "libHriPhysio.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/HriPhysio.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
