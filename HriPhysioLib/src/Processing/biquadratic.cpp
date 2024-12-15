@@ -31,7 +31,7 @@ Biquadratic::Biquadratic(const unsigned int rate, const double width/*=0.0*/) :
     sampling_rate(rate),
     band_width(width),
     center_frequency(0.0),
-    a0(0.0), a1(0.0), a2(0.0), b1(0.0), b2(0.0) { // Initialize coefficients
+    a0(0.0), a1(0.0), a2(0.0), b1(0.0), b2(0.0) { // Initialize coefficients.
 }
 
 void Biquadratic::filter(const double* source, double* target, const std::size_t numSamples, const double freq) {
