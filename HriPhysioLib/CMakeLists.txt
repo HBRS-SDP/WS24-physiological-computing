@@ -2,6 +2,42 @@
 # Authors: Austin Kothig <austin.kothig@uwaterloo.ca>
 # CopyPolicy: Released under the terms of the BSD 3-Clause License.
 
+# /* ================================================================================
+#  * Copyright: (C) 2024, Ayush Salunke,
+#  *     Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+#  * 
+#  * Author: 
+#  *     Ayush Salunke<ayush.salunke@smail.inf.h-brs.de>
+#  * 
+#  * CopyPolicy: Released under the terms of the MIT License.
+#  *     See the accompanying LICENSE file for details.
+#  * ================================================================================
+#  */
+
+#  /* ================================================================================
+#  * Copyright: (C) 2024, Prachi Sheth,
+#  *     Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+#  * 
+#  * Author: 
+#  *     Prachi Sheth <prachi.sheth@smail.inf.h-brs.de>
+#  * 
+#  * CopyPolicy: Released under the terms of the MIT License.
+#  *     See the accompanying LICENSE file for details.
+#  * ================================================================================
+#  */
+
+#  /* ================================================================================
+#  * Copyright: (C) 2024, Yash Somaiya,
+#  *     Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+#  * 
+#  * Author: 
+#  *     Yash Somaiya <yash.somaiya@smail.inf.h-brs.de>
+#  * 
+#  * CopyPolicy: Released under the terms of the MIT License.
+#  *     See the accompanying LICENSE file for details.
+#  * ================================================================================
+#  */
+
 cmake_minimum_required(VERSION 3.12)
 
 # Define the project name and version
@@ -45,6 +81,7 @@ set(${LIBRARY_TARGET_NAME}_SRC
     src/Stream/streamerInterface.cpp
     src/Stream/lslStreamer.cpp
     src/Stream/csvStreamer.cpp
+    src/Stream/main.cpp
 
     # HELPERS
     src/helpers.cpp
@@ -159,6 +196,13 @@ if(ENABLE_ROS)
         -lroscpp -lrostime -lrosconsole -lroscpp_serialization
     )
 endif(ENABLE_ROS)
+
+###################################
+# Added csvStreamer exe for testing
+add_executable(csvStreamer src/Stream/main.cpp  src/Stream/csvStreamer.cpp)
+target_link_libraries(csvStreamer ${LIBRARY_TARGET_NAME})
+
+###################################
 
 # Specify installation targets
 install(
