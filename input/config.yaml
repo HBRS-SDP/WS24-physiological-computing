@@ -1,0 +1,10 @@
+input: "/home/ayush/sdp_ws/src/WS24-physiological-computing/input/input_stream.csv"
+dtype: "int32"
+sampling_rate: 20
+input_frame: 10
+output_frame: 20
+num_channels: 1
+sample_overlap: 0
+buffer_length: 100
+log_data: true
+log_name: "log_stream.csv"

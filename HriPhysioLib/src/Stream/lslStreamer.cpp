@@ -10,7 +10,7 @@
  * ================================================================================
  */
 
-#include <HriPhysio/Stream/lslStreamer.h>
+#include "HriPhysio/Stream/lslStreamer.h"
 
 using namespace hriPhysio::Stream;
 

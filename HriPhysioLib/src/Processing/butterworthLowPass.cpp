@@ -10,6 +10,18 @@
  * ================================================================================
  */
 
+/* ================================================================================
+ * Copyright: (C) 2024, Prachi Sheth,
+ *     Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+ * 
+ * Author: 
+ *     Prachi Sheth <prachi.sheth@smail.inf.h-brs.de>
+ * 
+ * CopyPolicy: Released under the terms of the MIT License.
+ *     See the accompanying LICENSE file for details.
+ * ================================================================================
+ */
+
 #include <HriPhysio/Processing/butterworthLowPass.h>
 
 using namespace hriPhysio::Processing;

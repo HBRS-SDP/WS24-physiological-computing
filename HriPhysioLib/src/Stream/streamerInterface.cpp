@@ -10,7 +10,7 @@
  * ================================================================================
  */
 
-#include <HriPhysio/Stream/streamerInterface.h>
+#include "HriPhysio/Stream/streamerInterface.h"
 
 using namespace hriPhysio::Stream;
 

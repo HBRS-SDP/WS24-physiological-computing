@@ -3,7 +3,7 @@
 	url = https://github.com/sccn/labstreaminglayer.git
 [submodule "devices/LSL-Android"]
 	path = devices/LSL-Android
-	url = https://github.com/kothiga/LSL-Android.git
+	url = https://github.com/labstreaminglayer/liblsl-Android.git
 [submodule "deps/yaml-cpp"]
 	path = deps/yaml-cpp
 	url = https://github.com/jbeder/yaml-cpp.git
