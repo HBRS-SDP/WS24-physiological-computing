@@ -59,4 +59,8 @@ After running the script, the synthetic data will be generated based on your inp
 Data successfully saved to ecg_data/ECG_data.csv
 ```
 ---
+You can also visualize the plot to get a better understanding of what is happening.
 
+### Example plot for ECG data
+
+![Screenshot from 2025-01-16 13-20-06](https://github.com/user-attachments/assets/197220e7-0076-4416-ba1e-e28cff54efd9)
