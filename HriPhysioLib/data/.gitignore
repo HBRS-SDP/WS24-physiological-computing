@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# VSCode settings
+.vscode/
+
+# Virtual environment
+venv/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# System files
+.DS_Store  # macOS
+Thumbs.db   # Windows
+
+# Log files
+*.log
+
+# Build files
+*.egg
+*.egg-info
+dist/
+build/
