@@ -10,6 +10,17 @@
  * ================================================================================
  */
 
+/* ================================================================================
+ * Copyright: (C) 2024, Ayush Salunke, 
+ *       Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+ * 
+ * Authors: Ayush Salunke ayush.salunke@smail.inf.h-brs.de
+ * 
+ * CopyPolicy: Released under the terms of the MIT License.
+ *      See the accompanying LICENSE file for details.
+ * ================================================================================
+ */
+
 #ifndef HRI_PHYSIO_STREAM_CSV_STREAMER_H
 #define HRI_PHYSIO_STREAM_CSV_STREAMER_H
 
@@ -60,6 +71,18 @@ public:
     void publish(const std::string&  buff, const double* timestamps = nullptr);
     void receive(std::string& buff, double* timestamps = nullptr);
 
+    // Manual Work beacuse .name was not working
+
+    // Setter for name
+    void setName(const std::string& fileName) {
+        name = fileName;
+    }
+    // Getter for name if needed
+    std::string getName() const {
+        return name;
+    }
+    std::string name;
+    //---------------
 
 private:
     template<typename T>

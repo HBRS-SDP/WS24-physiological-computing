@@ -3,6 +3,7 @@
 /build-x86_64/*
 /data/*
 /.vscode/*
+HriPhysioLib/build/*
 
 # Prerequisites
 *.d
