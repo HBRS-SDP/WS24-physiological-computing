@@ -139,6 +139,9 @@ set_target_properties(
                PUBLIC_HEADER "${${LIBRARY_TARGET_NAME}_HDR}"
 )
 
+target_compile_features(${LIBRARY_TARGET_NAME} PUBLIC cxx_std_17)
+
+
 # Specify include directories for the library
 target_include_directories(
     ${LIBRARY_TARGET_NAME}
