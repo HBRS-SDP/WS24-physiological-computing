@@ -10,12 +10,25 @@
  * ================================================================================
  */
 
+/* ================================================================================
+ * Copyright: (C) 2024, Ayush Salunke, 
+ *       Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+ * 
+ * Authors: Ayush Salunke ayush.salunke@smail.inf.h-brs.de
+ * 
+ * CopyPolicy: Released under the terms of the MIT License.
+ *      See the accompanying LICENSE file for details.
+ * ================================================================================
+ */
+
 #include <HriPhysio/Stream/yarp/yarpStreamer.h>
 
 using namespace hriPhysio::Stream;
 
-
-YarpStreamer::YarpStreamer() : 
+// Clang-Tidy is complaining because temp is uninitialized hence added a explicit member initialization. 
+// (According to C++ guidelines Pro:Safety:Type6)
+YarpStreamer::YarpStreamer() :
+    temp(),
     StreamerInterface() {
 
 }
