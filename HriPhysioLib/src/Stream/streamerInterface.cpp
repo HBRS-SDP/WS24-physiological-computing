@@ -10,16 +10,31 @@
  * ================================================================================
  */
 
+/* ================================================================================
+ * Copyright: (C) 2024, Ayush Salunke, 
+ *       Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+ * 
+ * Authors: Ayush Salunke ayush.salunke@smail.inf.h-brs.de
+ * 
+ * CopyPolicy: Released under the terms of the MIT License.
+ *      See the accompanying LICENSE file for details.
+ * ================================================================================
+ */
+
 #include "HriPhysio/Stream/streamerInterface.h"
 
 using namespace hriPhysio::Stream;
 
 
+// Clang-Tidy is complaining because sampling_rate and var are uninitialized hence added a explicit member initialization. 
+// (According to C++ guidelines Pro:Safety:Type6)
 StreamerInterface::StreamerInterface() :
     name(""),
     dtype(""),
     frame_length(0),
     num_channels(0),
+    sampling_rate(),
+    var(),
     mode(modeTag::NOTSET) {
 
 }
