@@ -113,7 +113,7 @@ private:
     /* ===========================================================================
     **  Absolute Square.
     ** =========================================================================== */
-    double absoluteSquare(const std::complex<double> value);
+    double absoluteSquare(const std::complex<double>& value);
     
 };
 
