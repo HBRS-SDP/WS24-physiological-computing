@@ -49,7 +49,7 @@ public:
 
     ~RobotInterface();
 
-    void setName(const std::string name);
+    void setName(const std::string& name);
     std::string getName() const;
 
     virtual bool configure(int argc, char **argv) = 0;
@@ -66,7 +66,7 @@ public:
 
     virtual bool getPerphVelocity(const peripheral perph, std::vector<double>& speed);
 
-    virtual bool setEmotionState(const std::string emotion);
+    virtual bool setEmotionState(const std::string& emotion);
 
     virtual bool getEmotionState(std::string& emotion);
 
