@@ -37,7 +37,7 @@ RobotInterface::~RobotInterface() {
 }
 
 
-void RobotInterface::setName(const std::string name) {
+void RobotInterface::setName(const std::string& name) {
     this->name = name;
     return;
 }
@@ -78,7 +78,7 @@ bool RobotInterface::getPerphVelocity(const peripheral perph, std::vector<double
 }
 
 
-bool RobotInterface::setEmotionState(const std::string emotion) {
+bool RobotInterface::setEmotionState(const std::string& emotion) {
     warning("setEmotionState");
     return false;
 }
