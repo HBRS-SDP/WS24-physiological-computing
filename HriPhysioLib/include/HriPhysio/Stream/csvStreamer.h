@@ -52,36 +52,51 @@ private:
     std::ifstream input;
     std::ofstream output;
     std::string sys_time;
+    std::string name;
 
 
 public:
     CsvStreamer();
 
-    ~CsvStreamer();
+    // ~CsvStreamer();
 
-    bool openInputStream();
+    // Since CsvStreamer is derived from StreamerInterface,
+    // it should have a virtual destructor to ensure proper cleanup of derived class objects when deleted via a base class pointer.
+    // (According to C++ guidelines C.35)
+    virtual ~CsvStreamer();
 
-    bool openOutputStream();
+    // Add default implementations for special member functions to follow the Rule of Five.
+    // (According to C++ guidelines C.21)
+    CsvStreamer(const CsvStreamer&) = delete;            // Copy constructor
+    CsvStreamer& operator=(const CsvStreamer&) = delete; // Copy assignment
+    CsvStreamer(CsvStreamer&&) noexcept = default;        // Move constructor
+    CsvStreamer& operator=(CsvStreamer&&) noexcept = default; // Move assignment
+
+    // Explicitly mark overridden functions with override.
+    // bool openInputStream();
+    // bool openOutputStream();
+    bool openInputStream() override;
+    bool openOutputStream() override;
 
     // General data streams.
-    void publish(const std::vector<hriPhysio::varType>&  buff, const std::vector<double>* timestamps = nullptr);
-    void receive(std::vector<hriPhysio::varType>& buff, std::vector<double>* timestamps = nullptr);
+    // void publish(const std::vector<hriPhysio::varType>&  buff, const std::vector<double>* timestamps = nullptr);
+    // void receive(std::vector<hriPhysio::varType>& buff, std::vector<double>* timestamps = nullptr);
+    void publish(const std::vector<hriPhysio::varType>& buff, const std::vector<double>* timestamps = nullptr) override;
+    void receive(std::vector<hriPhysio::varType>& buff, std::vector<double>* timestamps = nullptr) override;
     
     // Special string stream.
-    void publish(const std::string&  buff, const double* timestamps = nullptr);
-    void receive(std::string& buff, double* timestamps = nullptr);
+    // void publish(const std::string&  buff, const double* timestamps = nullptr);
+    // void receive(std::string& buff, double* timestamps = nullptr);
+    void publish(const std::string& buff, const double* timestamps = nullptr) override;
+    void receive(std::string& buff, double* timestamps = nullptr) override;
 
     // Manual Work beacuse .name was not working
 
     // Setter for name
-    void setName(const std::string& fileName) {
-        name = fileName;
-    }
+    void setName(const std::string& fileName) { name = fileName; }
     // Getter for name if needed
-    std::string getName() const {
-        return name;
-    }
-    std::string name;
+    std::string getName() const { return name; }
+    // std::string name;
     //---------------
 
 private:
