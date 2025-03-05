@@ -40,21 +40,39 @@ private:
 public:
     LslStreamer();
 
-    ~LslStreamer();
+    // ~LslStreamer();
+
+    // Since LslStreamer is derived from StreamerInterface,
+    // it should have a virtual destructor to ensure proper cleanup of derived class objects when deleted via a base class pointer.
+    // (According to C++ guidelines C.35)
+    virtual ~LslStreamer();
+
+    // Add default implementations for special member functions to follow the Rule of Five.
+    // (According to C++ guidelines C.21)
+    LslStreamer(const LslStreamer&) = delete;
+    LslStreamer& operator=(const LslStreamer&) = delete;
+    LslStreamer(LslStreamer&&) = default;
+    LslStreamer& operator=(LslStreamer&&) = default;
 
     lsl::channel_format_t getLslFormatType();
 
-    bool openInputStream();
-
-    bool openOutputStream();
+    // Explicitly mark overridden functions with override.
+    // bool openInputStream();
+    // bool openOutputStream();
+    bool openInputStream() override;
+    bool openOutputStream() override;
 
     // General data streams.
-    void publish(const std::vector<hriPhysio::varType>&  buff, const std::vector<double>* timestamps = nullptr);
-    void receive(std::vector<hriPhysio::varType>& buff, std::vector<double>* timestamps = nullptr);
+    // void publish(const std::vector<hriPhysio::varType>&  buff, const std::vector<double>* timestamps = nullptr);
+    // void receive(std::vector<hriPhysio::varType>& buff, std::vector<double>* timestamps = nullptr);
+    void publish(const std::vector<hriPhysio::varType>& buff, const std::vector<double>* timestamps = nullptr) override;
+    void receive(std::vector<hriPhysio::varType>& buff, std::vector<double>* timestamps = nullptr) override;
     
     // Special string stream.
-    void publish(const std::string&  buff, const double* timestamps = nullptr);
-    void receive(std::string& buff, double* timestamps = nullptr);
+    // void publish(const std::string&  buff, const double* timestamps = nullptr);
+    // void receive(std::string& buff, double* timestamps = nullptr);
+    void publish(const std::string& buff, const double* timestamps = nullptr) override;
+    void receive(std::string& buff, double* timestamps = nullptr) override;
 
 private:
     template<typename T>
