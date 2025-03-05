@@ -88,6 +88,11 @@ void Spectrogram::process(const std::vector<double>& source, std::vector<std::ve
             /* fct        =*/ 1.
         );
 
+        // Store the absolute square of FFT results into `target`
+        for (std::size_t i = 0; i < data.size() / 2 + 1; ++i) {
+            target[counter][i] = absoluteSquare(data[i]);
+        }
+
         std::cout << "\nOutput:\n";
         for (int i = 0; i < data.size()/2 + 1; ++i) {
             std::cout << i << ": " << data[i].real() << "+" << data[i].imag() << std::endl;
@@ -144,10 +149,7 @@ void Spectrogram::hammingWindow(std::vector<double>& buffer, const std::size_t l
 
 
 void Spectrogram::resizeMatrix(std::vector<std::vector<double>>& mat, std::size_t nrows, std::size_t ncols) {
-    mat.resize(nrows);
-    for (auto& row : mat) {
-        row.resize(ncols);
-    }
+    mat.assign(nrows, std::vector<double>(ncols, 0.0));  
 }
 
 
