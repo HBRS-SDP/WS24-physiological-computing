@@ -78,8 +78,8 @@ def main():
         sampling_rate = 500
 
 
-    ecg_folder = "data/Scripts/ecg_data"
-    rsp_folder = "data/Scripts/rsp_data"
+    ecg_folder = "ecg_data"
+    rsp_folder = "rsp_data"
     create_folder(ecg_folder)
     create_folder(rsp_folder)
 
