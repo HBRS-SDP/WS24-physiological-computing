@@ -10,6 +10,17 @@
  * ================================================================================
  */
 
+/* ================================================================================
+ * Copyright: (C) 2024, Ayush Salunke, 
+ *       Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+ * 
+ * Authors: Ayush Salunke ayush.salunke@smail.inf.h-brs.de
+ * 
+ * CopyPolicy: Released under the terms of the MIT License.
+ *      See the accompanying LICENSE file for details.
+ * ================================================================================
+ */
+
 #ifndef HRI_PHYSIO_STREAM_STREAMER_INTERFACE_H
 #define HRI_PHYSIO_STREAM_STREAMER_INTERFACE_H
 
@@ -56,7 +67,7 @@ public:
     StreamerInterface(const StreamerInterface&) = delete;
     StreamerInterface& operator=(const StreamerInterface&) = delete;
     StreamerInterface(StreamerInterface&&) = delete;
-    StreamerInterface& operator=(StreamerInterface&&) = delete
+    StreamerInterface& operator=(StreamerInterface&&) = delete;
 
     void setName(const std::string name);
     void setDataType(const std::string dtype);

@@ -10,6 +10,17 @@
  * ================================================================================
  */
 
+/* ================================================================================
+ * Copyright: (C) 2024, Ayush Salunke, 
+ *       Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+ * 
+ * Authors: Ayush Salunke ayush.salunke@smail.inf.h-brs.de
+ * 
+ * CopyPolicy: Released under the terms of the MIT License.
+ *      See the accompanying LICENSE file for details.
+ * ================================================================================
+ */
+
 #ifndef HRI_PHYSIO_STREAM_LSL_STREAMER_H
 #define HRI_PHYSIO_STREAM_LSL_STREAMER_H
 
