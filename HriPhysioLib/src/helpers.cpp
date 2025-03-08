@@ -10,6 +10,18 @@
  * ================================================================================
  */
 
+
+/* ================================================================================
+ * Copyright: (C) 2024, Yash Somaiya, 
+ *       Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+ * 
+ * Authors: Yash Somaiya yash.somaiya@smail.inf.h-brs.de
+ * 
+ * CopyPolicy: Released under the terms of the MIT License.
+ *      See the accompanying LICENSE file for details.
+ * ================================================================================
+ */
+
 #include <HriPhysio/helpers.h>
 
 
