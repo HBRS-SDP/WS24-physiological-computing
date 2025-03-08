@@ -10,6 +10,17 @@
  * ================================================================================
  */
 
+/* ================================================================================
+ * Copyright: (C) 2024, Ayush Salunke, 
+ *       Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+ * 
+ * Authors: Ayush Salunke ayush.salunke@smail.inf.h-brs.de
+ * 
+ * CopyPolicy: Released under the terms of the MIT License.
+ *      See the accompanying LICENSE file for details.
+ * ================================================================================
+ */
+
 #include "HriPhysio/Stream/lslStreamer.h"
 
 using namespace hriPhysio::Stream;
@@ -19,6 +30,10 @@ LslStreamer::LslStreamer() :
     StreamerInterface() {
 
 }
+
+// Defining constants. (According to C++ guidelines ES.45)
+constexpr double kPullSampleTimeout = 0.2;
+constexpr double kPullChunkTimeout = 5.0;
 
 
 LslStreamer::~LslStreamer() {
@@ -34,7 +49,9 @@ LslStreamer::~LslStreamer() {
 
 lsl::channel_format_t LslStreamer::getLslFormatType() {
 
-    lsl::channel_format_t cf_type;
+    // Initialize cf_type with a default value (According to C++ guidelines ES.25)
+    // lsl::channel_format_t cf_type;
+    lsl::channel_format_t cf_type = lsl::channel_format_t::cf_undefined;
 
     switch (this->var) {
     case hriPhysio::varTag::CHAR:
@@ -77,8 +94,12 @@ bool LslStreamer::openInputStream() {
 
     try {
 
+        // inlet.reset was allocating memory but passing the pointer to a non-owner type. Used 'std::make_unique<T>(...)' instead of 'new'.
+        // (According to C++ guidelines I.11)
+
         //-- Create a new inlet from the given input name.
-        inlet.reset(new lsl::stream_inlet(lsl::resolve_stream("name", this->name)[0]));
+        // inlet.reset(new lsl::stream_inlet(lsl::resolve_stream("name", this->name)[0]));
+        inlet = std::make_unique<lsl::stream_inlet>(lsl::resolve_stream("name", this->name)[0]);
 
 	} catch (std::exception& e) { std::cerr << "Got an exception: " << e.what() << std::endl; return false; }
 
@@ -98,17 +119,25 @@ bool LslStreamer::openOutputStream() {
 
     try {
 
+        // Implicit conversions from std::size_t to int32_t and double hence used explicit static_cast<type> to avoid narrowing conversions.
+        // Variables changed: num_channels, sampling_rate, frame_length (According to C++ guidelines ES.46)
+
+        // outlet.reset was allocating memory but passing the pointer to a non-owner type. Used 'std::make_unique<T>(...)' instead of 'new'. (According to C++ guidelines I.11)
+
         //-- Create an info obj and open an outlet with it.
         lsl::stream_info info(
             /* name           = */ this->name,
             /* type           = */ "",
-            /* channel_count  = */ this->num_channels,
-            /* nominal_srate  = */ this->sampling_rate, // lsl::IRREGULAR_RATE -> 0.0.
+            /* channel_count  = */ static_cast<int32_t>(this->num_channels), 
+            /* nominal_srate  = */ static_cast<double>(this->sampling_rate), // lsl::IRREGULAR_RATE -> 0.0.
             /* channel_format = */ this->getLslFormatType(),
             /* source_id      = */ this->name
         );
 
-        outlet.reset(new lsl::stream_outlet(info, /*chunk_size=*/this->frame_length, /*max_buffered=*/this->frame_length*2));
+        // outlet.reset(new lsl::stream_outlet(info, /*chunk_size=*/static_cast<int32_t>(this->frame_length), /*max_buffered=*/static_cast<int32_t>(this->frame_length * 2)));
+        outlet = std::make_unique<lsl::stream_outlet>(info, 
+            static_cast<int32_t>(this->frame_length), 
+            static_cast<int32_t>(this->frame_length * 2));
 
     } catch (std::exception& e) { std::cerr << "Got an exception: " << e.what() << std::endl; return false; }
 
@@ -188,7 +217,7 @@ void LslStreamer::receive(std::vector<hriPhysio::varType>& buff, std::vector<dou
 void LslStreamer::receive(std::string& buff, double* timestamps/*=nullptr*/) {
 
     //-- Pull in the string.
-    double ts = inlet->pull_sample(&buff, 1, 0.2);
+    double ts = inlet->pull_sample(&buff, 1, kPullSampleTimeout);
 
     if (timestamps != nullptr) { *timestamps = ts; }
 
@@ -219,7 +248,7 @@ void LslStreamer::pullStream(std::vector<hriPhysio::varType>& buff, std::vector<
     std::vector<T> samples;
 
     //-- Pull a multiplexed chunk into a flat vector.
-    inlet->pull_chunk_multiplexed(samples, timestamps, 5.0);
+    inlet->pull_chunk_multiplexed(samples, timestamps, kPullChunkTimeout);
 
     //-- Copy the data into the buffer.
     for (std::size_t idx = 0; idx < samples.size(); ++idx) {

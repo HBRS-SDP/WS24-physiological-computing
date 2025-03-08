@@ -10,6 +10,17 @@
  * ================================================================================
  */
 
+/* ================================================================================
+ * Copyright: (C) 2024, Ayush Salunke, 
+ *       Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+ * 
+ * Authors: Ayush Salunke ayush.salunke@smail.inf.h-brs.de
+ * 
+ * CopyPolicy: Released under the terms of the MIT License.
+ *      See the accompanying LICENSE file for details.
+ * ================================================================================
+ */
+
 #ifndef HRI_PHYSIO_STREAM_STREAMER_INTERFACE_H
 #define HRI_PHYSIO_STREAM_STREAMER_INTERFACE_H
 
@@ -44,7 +55,19 @@ protected:
 public:
     StreamerInterface();
 
-    ~StreamerInterface();
+    // ~StreamerInterface();
+
+    // The base class StreamerInterface has a destructor but it is not virtual. 
+    // This can lead to undefined behavior when deleting derived class objects through a base class pointer.
+    // (According to C++ guidelines C.21)
+    virtual ~StreamerInterface() = default;
+
+    // Add default implementations for special member functions to follow the Rule of Five.
+    // (According to C++ guidelines C.21)
+    StreamerInterface(const StreamerInterface&) = delete;
+    StreamerInterface& operator=(const StreamerInterface&) = delete;
+    StreamerInterface(StreamerInterface&&) = delete;
+    StreamerInterface& operator=(StreamerInterface&&) = delete;
 
     void setName(const std::string name);
     void setDataType(const std::string dtype);

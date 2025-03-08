@@ -31,6 +31,9 @@ CsvStreamer::CsvStreamer() :
 
 }
 
+//Set Precision Constant (According to C++ guidelines)
+constexpr int precisionConstant = 10; 
+
 
 CsvStreamer::~CsvStreamer() {
 
@@ -143,7 +146,7 @@ void CsvStreamer::publish(const std::string& buff, const double* timestamps/*=nu
     if (timestamps == nullptr) {
         output << 0.0;
     } else {
-        output << std::setprecision(10) << (*timestamps);
+        output << std::setprecision(precisionConstant) << (*timestamps);
     } 
 
     //-- Data.
@@ -217,7 +220,7 @@ void CsvStreamer::pushStream(const std::vector<hriPhysio::varType>&  buff, const
         } else if (timestamps->size() == 0) {
             output << 0.0;
         } else {
-            output << std::setprecision(10) << timestamps->at(idx_time);
+            output << std::setprecision(precisionConstant) << timestamps->at(idx_time);
             ++idx_time;
         } 
 

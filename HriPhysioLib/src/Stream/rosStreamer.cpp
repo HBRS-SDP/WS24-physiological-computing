@@ -10,16 +10,30 @@
  * ================================================================================
  */
 
+/* ================================================================================
+ * Copyright: (C) 2024, Ayush Salunke, 
+ *       Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
+ * 
+ * Authors: Ayush Salunke ayush.salunke@smail.inf.h-brs.de
+ * 
+ * CopyPolicy: Released under the terms of the MIT License.
+ *      See the accompanying LICENSE file for details.
+ * ================================================================================
+ */
+
 #include <HriPhysio/Stream/ros/rosStreamer.h>
 
 using namespace hriPhysio::Stream;
 
+// Clang-Tidy is complaining because sub and pub are uninitialized hence added a explicit member initialization. 
+// (According to C++ guidelines Pro:Safety:Type6)
+RosStreamer::RosStreamer() :
+    ros::Subscriber sub();
+    ros::Publisher pub();
+    StreamerInterface() {}
 
-RosStreamer::RosStreamer() : 
-    StreamerInterface() {
-
-}
-
+// Defining constants. (According to C++ guidelines ES.45)
+constexpr size_t PUB_BUFFER_SIZE = 1000;
 
 RosStreamer::~RosStreamer() {
 
@@ -102,7 +116,7 @@ bool RosStreamer::openOutputStream() {
         //-- Create a publisher.
         ros::NodeHandle nh;
 
-        size_t pub_buffer = 1000;
+        size_t pub_buffer = PUB_BUFFER_SIZE;
         switch (this->var) {
         case hriPhysio::varTag::CHAR:
             pub = nh.advertise<std_msgs::Int8MultiArray>(this->name, pub_buffer);
