@@ -36,16 +36,18 @@ ButterworthHighPass::ButterworthHighPass(const unsigned int rate) :
 void ButterworthHighPass::updateCoefficients(const double freq) {
     
     //-- Allocate some local variables.
-    double c, cc;
+    constexpr double SQRT2 = 1.41421356237;  
+    constexpr double TWO = 2.0;
 
     //-- Compute the coeff for the given center frequency.
-    c  =  tan(hriPhysio::Processing::pi * freq / sampling_rate);
-    cc =  c * c;
-    a0 =  1.0 / (1.0 + (hriPhysio::Processing::sqrt2 * c) + cc);
-    a1 = -a0 * 2.0;
+    double c  =  tan(hriPhysio::Processing::pi * freq / sampling_rate);
+    double cc =  c * c;
+
+    a0 =  1.0 / (1.0 + (SQRT2 * c) + cc);
+    a1 = -a0 * TWO;
     a2 =  a0;
-    b1 =  a0 * 2.0 * (cc - 1.0);
-    b2 =  a0 * (1.0 - (hriPhysio::Processing::sqrt2 * c) + cc);
+    b1 =  a0 * TWO * (cc - 1.0);
+    b2 =  a0 * (1.0 - (SQRT2 * c) + cc);
 
     //-- Cache this center frequency, 
     //-- so that it is not recomputed.

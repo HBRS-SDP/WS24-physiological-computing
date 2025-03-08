@@ -13,6 +13,7 @@
 """
 
 import neurokit2 as nk
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import os
@@ -42,6 +43,17 @@ def generate_rsp(duration, sampling_rate):
 def create_folder(folder_name):
     os.makedirs(folder_name, exist_ok=True)
 
+def plot(data, sensor_type):
+    plt.figure(figsize=(12, 6))
+    plt.plot(data["timestamp"], data["value"], label=f"{sensor_type} Signal")
+    plt.xlabel("Time (s)")
+    plt.ylabel("Amplitude")
+    plt.title(f"{sensor_type} Signal Over Time")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+
 # Function to handle user input and save data
 def main():
     print("Select the type of data to generate:")
@@ -66,8 +78,8 @@ def main():
         sampling_rate = 500
 
 
-    ecg_folder = "Scripts/ecg_data"
-    rsp_folder = "Scripts/rsp_data"
+    ecg_folder = "ecg_data"
+    rsp_folder = "rsp_data"
     create_folder(ecg_folder)
     create_folder(rsp_folder)
 
@@ -76,11 +88,13 @@ def main():
         data = generate_ecg(duration, sampling_rate)
         folder = ecg_folder
         file_prefix = "ECG_data"
+        sensor_type = "ECG"
     elif choice == 2:
         print("Generating RSP data...")
         data = generate_rsp(duration, sampling_rate)
         folder = rsp_folder
         file_prefix = "RSP_data"
+        sensor_type = "RSP"
     else:
         print("Invalid choice. Please enter 1 or 2.")
         return
@@ -93,6 +107,8 @@ def main():
         print(f"Data successfully saved to {filename}")
     except IOError as e:
         print(f"Error saving file: {e}")
+
+    plot(data, sensor_type)
 
 if __name__ == "__main__":
     main()

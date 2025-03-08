@@ -35,11 +35,11 @@ ButterworthBandNoch::ButterworthBandNoch(const unsigned int rate, const double w
 void ButterworthBandNoch::updateCoefficients(const double freq) {
 
     //-- Allocate some local variables.
-    double c, d;
+    constexpr double TWO = 2.0;
 
     //-- Compute the coeff for the given center frequency.
-    c  =  tan( hriPhysio::Processing::pi * (band_width / sampling_rate) );
-    d  =  2.0 * cos( 2.0 * hriPhysio::Processing::pi * (freq / sampling_rate) );
+    double c  =  tan(pi * (band_width / sampling_rate) );
+    double d  =  TWO * cos( TWO * pi * (freq / sampling_rate) );
     a0 =  1.0 / (1.0 + c);
     a1 = -a0 * d;
     a2 =  a0;

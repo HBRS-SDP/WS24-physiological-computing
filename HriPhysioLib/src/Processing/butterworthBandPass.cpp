@@ -35,11 +35,11 @@ ButterworthBandPass::ButterworthBandPass(const unsigned int rate, const double w
 void ButterworthBandPass::updateCoefficients(const double freq) {
 
     //-- Allocate some local variables.
-    double c, d;
+    constexpr double TWO = 2.0;
 
     //-- Compute the coeff for the given center frequency.
-    c  =  1.0 / tan( hriPhysio::Processing::pi * (band_width / sampling_rate) );
-    d  =  2.0 * cos( 2.0 * hriPhysio::Processing::pi * (freq / sampling_rate) );
+    double c  =  1.0 / tan( hriPhysio::Processing::pi * (band_width / sampling_rate) );
+    double d  =  TWO * cos( TWO * hriPhysio::Processing::pi * (freq / sampling_rate) );
     a0 =  1.0 / (c + 1.0);
     a1 =  0.0;
     a2 = -a0;
