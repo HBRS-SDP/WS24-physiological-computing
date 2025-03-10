@@ -2,12 +2,6 @@
 # Authors: Austin Kothig <austin.kothig@uwaterloo.ca>
 # CopyPolicy: Released under the terms of the BSD 3-Clause License.
 
-<<<<<<< HEAD
-cmake_minimum_required(VERSION 3.12)
-
-# Define the project name and version
-project(HriPhysioLib VERSION 1.0)
-=======
 # /* ================================================================================
 #  * Copyright: (C) 2024, Ayush Salunke,
 #  *     Hochschule Bonn-Rhein-Sieg (H-BRS), All rights reserved.
@@ -51,7 +45,6 @@ project(HriPhysio VERSION 1.0)
 
 # Generate compile_commands.json for clang-tidy and other tools
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
->>>>>>> main
 
 # Set the C++ standard
 set(CMAKE_CXX_STANDARD 17) 
@@ -210,16 +203,17 @@ if(ENABLE_ROS)
     )
 endif(ENABLE_ROS)
 
-<<<<<<< HEAD
-=======
 ###################################
 # Added csvStreamer exe for testing
 add_executable(csvStreamer src/Stream/main.cpp  src/Stream/csvStreamer.cpp)
 target_link_libraries(csvStreamer ${LIBRARY_TARGET_NAME})
 
+# Added spectrogram exe for testing
+add_executable(spectrogram src/Processing/main.cpp  src/Processing/spectrogram.cpp)
+target_link_libraries(spectrogram ${LIBRARY_TARGET_NAME})
+
 ###################################
 
->>>>>>> main
 # Specify installation targets
 install(
     TARGETS ${LIBRARY_TARGET_NAME}

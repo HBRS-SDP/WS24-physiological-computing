@@ -40,8 +40,8 @@ StreamerInterface::StreamerInterface() :
 }
 
 
-StreamerInterface::~StreamerInterface() {
-}
+// StreamerInterface::~StreamerInterface() {
+// }
 
 
 void StreamerInterface::setName(const std::string name) {
