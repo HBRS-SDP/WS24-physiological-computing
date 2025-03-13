@@ -15,7 +15,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <HriPhysio/spectrogram.h>
+#include <HriPhysio/Processing/spectrogram.h>
 
 using namespace hriPhysio::Processing;
 

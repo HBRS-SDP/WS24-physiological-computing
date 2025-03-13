@@ -108,7 +108,7 @@ Demo Screenshots:
 
 To Test it; run using following command:
 
-- Clone the `hriphysio_pkg` in your local ros2 workspace.
+- Clone the `ros2/hriphysio_pkg` in your local ros2 workspace.
 - Change line 17 (HRIPHYSIO_LIB_PATH) from the CmakeLists.txt (# Add HriPhysioLib manually) to the location of your HriPhysioLib location. Make sure that the HriphysioLib library is properly built without any errors. <br>
 - build your workspace:        `colcon build --packages-select hriphysio_pkg` 
 - source your ros2 workspace:  `source install/setup.bash`
