@@ -1,11 +1,11 @@
-# Functionaities of the Modules
+# Functionaities of the Modules 🌟🌠
 
-## Core
-## Manager
-## Helper
-## Processing
+## Core ⚓
+## Manager ⚒️
+## Helper 🏹
+## Processing 🔭
 
-#### `biquadratic.cpp`
+#### `biquadratic.cpp` 
 
 This file implements a **Biquadratic filter** for signal processing. It updates filter coefficients dynamically based on the center frequency and applies a bilinear transformation to process input signals, helping remove noise or extract relevant frequency components.
 
@@ -33,13 +33,13 @@ This file implements the **Hilbert Transform**, which is crucial in physiologica
 
 This file applies a **short-time Fourier transform (STFT)**, using the Hamming window to extract time-frequency representations from input signals.
 
-## Social
+## Social 🤖
 
 #### `robotInterface.cpp`
 
 This file implements the **RobotInterface**, a class that provides a common interface for controlling a social robot in human-robot interaction.
 
-## Stream
+## Stream 💿
 
 #### `csvStreamer.cpp`
 This file manages reading and writing CSV files for streaming data in the HriPhysio framework. It allows opening files for input or output, writing structured data with timestamps, and reading stored data into buffers. It provides methods to publish and retrieve data from CSV files. The class also includes error handling for file operations and structured logging for debugging.
@@ -56,7 +56,7 @@ This file defines the StreamerInterface class, which serves as a base class for 
 #### `yarpStreamer.cpp`
 This file implements the YarpStreamer class, which manages data streaming using YARP within the hriPhysio framework, supporting both data publishing and receiving.
 
-## Factory
+## Factory 🏵️
 
 #### `streamerFactory.cpp`
 This file implements the StreamerFactory class, which creates and returns instances of different streaming interfaces (LSL, ROS, YARP) based on the requested type.
