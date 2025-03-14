@@ -58,7 +58,7 @@ HRI Physio Lib is a library developed by Austin Kothig for researchers in the fi
 ## Steps to use the spectrogram function:
   - The Spectrogram class processes physiological signals by applying the short-time Fourier transform (STFT) to extract frequency-domain features. It first segments the input signal into overlapping windows using a Hamming function, then applies the Fast Fourier Transform (FFT) to each window to convert the signal from the time domain to the frequency domain. The resulting power spectrum values are stored in a matrix, forming the spectrogram.
   - It allows the user to choose from two input modes, manual input and input from a .csv file.
-  - Run the following command to use the program:
+  - Ensure that you are in the home folder of your workspace and then run the following command to use the program:
     ```
     ./HriphysioLib/build/spectrogram
     ```
