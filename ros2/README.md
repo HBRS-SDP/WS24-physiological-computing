@@ -26,16 +26,33 @@ From CSV File:
 
 To Test it; run using following command:
 
-- `g++ src/Processing/main.cpp src/Processing/spectrogram.cpp -Iinclude -Iinclude/PocketFFT -o spectrogram_out -std=c++17`
-
-- `./spectrogram_out`
+Ensure that you are in the home folder of your workspace and then run the following command to use the program: 
+    ```
+    ./HriphysioLib/build/spectrogram
+    ```
+You should be able to select from the input modes and receive a processed output!
 
 # `spectrogram_publisher.cpp`
 Description:
 
-This C++ program is a ROS 2 node that generates and publishes spectrogram data based on user-provided input. It allows the user to either: manually enter data, or load data from a CSV file. The data processing is performed in the same way as `main.cpp`.
-
-The input data is processed using the HriPhysio library's Spectrogram class, and the computed spectrogram is published as a ROS 2 message on the `/spectrogram_output` topic.
+ If you wish to publish this output as a ROS topic then you need to follow a few additional steps. The program can act as a ROS2 node as well. The steps for the same are:
+ 
+- Clone the `hriphysio_pkg` in your ROS2 workspace.
+  - Change line 17 (HRIPHYSIO_LIB_PATH) from the CmakeLists.txt (# Add HriPhysioLib manually) to the location of your HriPhysioLib location. Make sure that the HriphysioLib library is properly built without any errors.
+  - Build your workspace:
+    ```
+    colcon build --packages-select hriphysio_pkg
+    ```
+  - Source your workspace:
+    ```
+    source install/setup.bash
+    ```
+  - Run the publisher node:
+    ```
+    ros2 run hriphysio_pkg spectrogram_publisher_node
+    ```
+  - You can see the output being published on the topic `/spectrogram_output`.
+  - If you have any difficulties in setting up a ROS2 workspace then you can visit the following page: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html 
 
 Demo Screenshots:
 
@@ -43,10 +60,5 @@ Demo Screenshots:
 
 ![WhatsApp Image 2025-03-11 at 12 30 53_68e52774](https://github.com/user-attachments/assets/15dd07b2-fc84-4c89-b09c-960b36f86bae)
 
-To Test it; run using following command:
 
-- Clone the `ros2/hriphysio_pkg` in your local ros2 workspace.
-- Change line 17 (HRIPHYSIO_LIB_PATH) from the CmakeLists.txt (# Add HriPhysioLib manually) to the location of your HriPhysioLib location. Make sure that the HriphysioLib library is properly built without any errors. <br>
-- build your workspace:        `colcon build --packages-select hriphysio_pkg` 
-- source your ros2 workspace:  `source install/setup.bash`
-- run the publisher node :     `ros2 run hriphysio_pkg spectrogram_publisher_node`
+
