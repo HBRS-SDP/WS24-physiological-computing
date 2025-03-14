@@ -83,7 +83,7 @@ HRI Physio Lib is a library developed by Austin Kothig for researchers in the fi
     ros2 run hriphysio_pkg spectrogram_publisher_node
     ```
   - You can see the output being published on the topic `/spectrogram_output`.
-  - If you have anz difficulties in setting up a ROS2 workspace then you can visit the following page: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html 
+  - If you have any difficulties in setting up a ROS2 workspace then you can visit the following page: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html 
 
 ## Contributors:
 - Austin Kothig: austin.kothig@uwaterloo.ca
