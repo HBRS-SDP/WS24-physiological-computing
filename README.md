@@ -66,7 +66,24 @@ HRI Physio Lib is a library developed by Austin Kothig for researchers in the fi
     ```
     ./spectrogram_out
     ```
-  - You should be able to select from the input modes and receive a processed output! 
+  - You should be able to select from the input modes and receive a processed output!
+- If you wish to publish this output as a ROS topic then you need to follow a few additional steps. The program can act as a ROS2 node as well. The steps for the same are:
+  - Clone the `hriphzsio_pkg` in your ROS2 workspace.
+  - Change line 17 (HRIPHYSIO_LIB_PATH) from the CmakeLists.txt (# Add HriPhysioLib manually) to the location of your HriPhysioLib location. Make sure that the HriphysioLib library is properly built without any errors.
+  - Build your workspace:
+    ```
+    colcon build --packages-select hriphysio_pkg
+    ```
+  - Source your workspace:
+    ```
+    source install/setup.bash
+    ```
+  - Run the publisher node:
+    ```
+    ros2 run hriphysio_pkg spectrogram_publisher_node
+    ```
+  - You can see the output being published on the topic `/spectrogram_output`.
+  - If you have anz difficulties in setting up a ROS2 workspace then you can visit the following page: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html 
 
 ## Contributors:
 - Austin Kothig: austin.kothig@uwaterloo.ca
