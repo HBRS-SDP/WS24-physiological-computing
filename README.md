@@ -55,31 +55,7 @@ HRI Physio Lib is a library developed by Austin Kothig for researchers in the fi
     ```
     sudo cmake --build . --config Release --target install
     ```
-## Steps to use the spectrogram function:
-  - The Spectrogram class processes physiological signals by applying the short-time Fourier transform (STFT) to extract frequency-domain features. It first segments the input signal into overlapping windows using a Hamming function, then applies the Fast Fourier Transform (FFT) to each window to convert the signal from the time domain to the frequency domain. The resulting power spectrum values are stored in a matrix, forming the spectrogram.
-  - It allows the user to choose from two input modes, manual input and input from a .csv file.
-  - Ensure that you are in the home folder of your workspace and then run the following command to use the program:
-    ```
-    ./HriphysioLib/build/spectrogram
-    ```
-  - You should be able to select from the input modes and receive a processed output!
-- If you wish to publish this output as a ROS topic then you need to follow a few additional steps. The program can act as a ROS2 node as well. The steps for the same are:
-  - Clone the `hriphysio_pkg` in your ROS2 workspace.
-  - Change line 17 (HRIPHYSIO_LIB_PATH) from the CmakeLists.txt (# Add HriPhysioLib manually) to the location of your HriPhysioLib location. Make sure that the HriphysioLib library is properly built without any errors.
-  - Build your workspace:
-    ```
-    colcon build --packages-select hriphysio_pkg
-    ```
-  - Source your workspace:
-    ```
-    source install/setup.bash
-    ```
-  - Run the publisher node:
-    ```
-    ros2 run hriphysio_pkg spectrogram_publisher_node
-    ```
-  - You can see the output being published on the topic `/spectrogram_output`.
-  - If you have any difficulties in setting up a ROS2 workspace then you can visit the following page: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html 
+
 
 ## Contributors:
 - Austin Kothig: austin.kothig@uwaterloo.ca
