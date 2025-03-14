@@ -60,15 +60,11 @@ HRI Physio Lib is a library developed by Austin Kothig for researchers in the fi
   - It allows the user to choose from two input modes, manual input and input from a .csv file.
   - Run the following command to use the program:
     ```
-    g++ src/Processing/main.cpp src/Processing/spectrogram.cpp -Iinclude -Iinclude/PocketFFT -o spectrogram_out -std=c++17
-    ```
-  - This will generate an executable file "spectrogram_out". You can change the name of this file. To run this executable simple run the following command:
-    ```
-    ./spectrogram_out
+    ./HriphysioLib/build/spectrogram
     ```
   - You should be able to select from the input modes and receive a processed output!
 - If you wish to publish this output as a ROS topic then you need to follow a few additional steps. The program can act as a ROS2 node as well. The steps for the same are:
-  - Clone the `hriphzsio_pkg` in your ROS2 workspace.
+  - Clone the `hriphysio_pkg` in your ROS2 workspace.
   - Change line 17 (HRIPHYSIO_LIB_PATH) from the CmakeLists.txt (# Add HriPhysioLib manually) to the location of your HriPhysioLib location. Make sure that the HriphysioLib library is properly built without any errors.
   - Build your workspace:
     ```
