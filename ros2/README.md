@@ -24,12 +24,14 @@ From CSV File:
 
 ![Screenshot from 2025-03-05 16-38-43](https://github.com/user-attachments/assets/6a4db55b-1f09-456f-b772-25280976e5d9)
 
-To Test it; run using following command:
+To Test it; run using the following command:
 
-Ensure that you are in the home folder of your workspace and then run the following command to use the program: 
+Ensure that you have built HriPhysioLib and are currently in the home folder of your workspace and then run the following command to use the program: 
+
     ```
     ./HriphysioLib/build/spectrogram
     ```
+    
 You should be able to select from the input modes and receive a processed output!
 
 # `spectrogram_publisher.cpp` 🧲
@@ -52,7 +54,7 @@ Description:
     ros2 run hriphysio_pkg spectrogram_publisher_node
     ```
   - You can see the output being published on the topic `/spectrogram_output`.
-  - If you have any difficulties in setting up a ROS2 workspace then you can visit the following page: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html 
+  - If you have any difficulties in setting up a ROS2 workspace then you can visit the following [page](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html) 
 
 Demo Screenshots:
 
