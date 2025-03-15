@@ -5,12 +5,12 @@ HRI Physio Lib is a library developed by Austin Kothig for researchers in the fi
 
 ## Installing the library:
 - Setting up the library requires a couple of steps of installation so please bear with us. Follow these steps in the given order to successfully set up the library:
-  - Cloning the repository: navigate to your workspace where you want to install the library and run the following command:<br>
+  - Cloning the repository: navigate to your workspace where you want to install the library and run the following command (It is recommended that you install this library in your ROS2 workspace):<br>
     ```
-      git clone https://github.com/HBRS-SDP/WS24-physiological-computing.git
+      git clone -b devel https://github.com/HBRS-SDP/WS24-physiological-computing.git
     ```
     
-  - Installing dependancies: as you know our repository uses three external libraries which have been added as submodules in the /deps folder, so we need to clone them first:<br>
+  - Installing dependencies: as you know our repository uses three external libraries which have been added as submodules in the /deps folder, so we need to clone them first:<br>
       ```
     cd WS24-physiological-computing/deps/
       ```
@@ -27,7 +27,7 @@ HRI Physio Lib is a library developed by Austin Kothig for researchers in the fi
     git clone --recurse-submodules https://github.com/sccn/labstreaminglayer.git
       ```
     
-  - What we have done currently is add the dependancies to our library. One additional step that needs to be done is that we need to build 'labstreaminglayer':
+  - What we have done currently is add the dependencies to our library. One additional step that needs to be done is that we need to build 'labstreaminglayer':
       ```
     cd labstreaminglayer/
       ```
@@ -40,8 +40,24 @@ HRI Physio Lib is a library developed by Austin Kothig for researchers in the fi
       ```
     make
       ```
-  - You should see a series of percentage statements. At the end if you see no errors then you are successfully done with installing the dependancies.
-  - Next step is building our library so navigate back to the home folder i.e. WS24-physiological-computing and run the following commands:
+  - You should see a series of percentage statements. At the end if you see no errors then you are successfully done with installing the dependencies.
+  - Then we build HriPhysioLib before our final step.
+     ```
+     cd HriPhysioLib
+     ```
+     ```
+     rm -rf build
+     ```
+     ```
+     mkdir build && cd build
+     ```
+    ```
+    cmake ..
+    ```
+    ```
+    sudo cmake --build . --config Release --target install
+    ```
+  - The next step is building our library so navigate back to the home folder i.e. WS24-physiological-computing and run the following commands:
       ```
     mkdir build && cd build
       ```
