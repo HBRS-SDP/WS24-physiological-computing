@@ -6,7 +6,7 @@ To Test the working of HriPhysioLib modules, `spectrogram.cpp` file is used; as 
 
 The Spectrogram class processes physiological signals by applying the short-time Fourier transform (STFT) to extract frequency-domain features. It first segments the input signal into overlapping windows using a Hamming function, then applies the Fast Fourier Transform (FFT) to each window to convert the signal from the time domain to the frequency domain. The resulting power spectrum values are stored in a matrix, forming the spectrogram.
 
-# `main.cpp` 📁
+# `Processing/main.cpp` 📁
 
 This program processes physiological data to generate a spectrogram. 
 
@@ -38,7 +38,7 @@ Description:
  If you wish to publish this output as a ROS topic then you need to follow a few additional steps. The program can act as a ROS2 node as well. The steps for the same are:
  
 - Clone the `hriphysio_pkg` in your ROS2 workspace.
-  - Change line 17 (HRIPHYSIO_LIB_PATH) from the CmakeLists.txt (# Add HriPhysioLib manually) to the location of your HriPhysioLib location. Make sure that the HriphysioLib library is properly built without any errors.
+  - Change line 28 (HRIPHYSIO_LIB_PATH) from the CmakeLists.txt (# Add HriPhysioLib manually) to the location of your HriPhysioLib location. Make sure that the HriphysioLib library is properly built without any errors.
   - Build your workspace:
     ```
     colcon build --packages-select hriphysio_pkg
