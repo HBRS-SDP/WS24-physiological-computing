@@ -41,7 +41,7 @@ HRI Physio Lib is a library developed by Austin Kothig for researchers in the fi
     make
       ```
   - You should see a series of percentage statements. At the end if you see no errors then you are successfully done with installing the dependencies.
-  - Then we build HriPhysioLib before our final step.
+  - Then we build HriPhysioLib before our final step For this part of the build you have to navigate back to the base folder `WS24-physiological-computing` and then follow the steps below.
      ```
      cd HriPhysioLib
      ```
