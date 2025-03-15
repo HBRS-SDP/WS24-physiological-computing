@@ -28,7 +28,7 @@ To Test it; run using the following command:
 
 Ensure that you have built HriPhysioLib and are currently in the home folder of your workspace and then run the following command to use the program: 
 ```
-./HriphysioLib/build/spectrogram
+./build/bin/spectrogram
 ```
 You should be able to select from the input modes and receive a processed output!
 
