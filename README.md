@@ -57,20 +57,20 @@ HRI Physio Lib is a library developed by Austin Kothig for researchers in the fi
     ```
     sudo cmake --build . --config Release --target install
     ```
-  - The next step is building our library so navigate back to the home folder i.e. WS24-physiological-computing and run the following commands:
+  - The final step is building our library so navigate back to the home folder i.e. WS24-physiological-computing. Run the following commands:
       ```
-    mkdir build && cd build
-      ```
-      ```
-    cmake ..
+      cd ../..
       ```
       ```
-    make
+      mkdir build && cd build
       ```
-  - This should result in a successful building of the library. Now final step of this process is to install the library:
-    ```
-    sudo cmake --build . --config Release --target install
-    ```
+      ```
+      cmake ..
+      ```
+      ```
+      sudo cmake --build . --config Release --target install
+      ```
+  - This should result in a successful building of the library. Now you can head over to the `/ros2` folder to follow instructions on testing `/spectrogram` functionality of the library and setting up a ros2 communication node for the library.
 
 
 ## Contributors:
