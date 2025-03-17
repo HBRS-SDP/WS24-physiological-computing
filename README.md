@@ -3,7 +3,7 @@
 ## Table of Contents:
 
   - [Introduction](https://github.com/HBRS-SDP/WS24-physiological-computing/tree/devel?tab=readme-ov-file#introduction)
-  - [Installing-the-library](https://github.com/HBRS-SDP/WS24-physiological-computing/tree/devel?tab=readme-ov-file#installing-the-library)
+  - [Installing the library](https://github.com/HBRS-SDP/WS24-physiological-computing/tree/devel?tab=readme-ov-file#installing-the-library)
   - [Module functionalities](https://github.com/HBRS-SDP/WS24-physiological-computing/tree/devel/HriPhysioLib)
   - [Generating fabricated input data](https://github.com/HBRS-SDP/WS24-physiological-computing/tree/devel/HriPhysioLib/data)
   - [ROS2 testing](https://github.com/HBRS-SDP/WS24-physiological-computing/tree/devel/ros2)
