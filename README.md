@@ -1,4 +1,14 @@
 # HRI Physio Lib 
+
+## Table of Contents:
+
+  - [Introduction](https://github.com/HBRS-SDP/WS24-physiological-computing/edit/devel/README.md#introduction)
+  - [Installing the library](https://github.com/HBRS-SDP/WS24-physiological-computing/edit/devel/README.md#introduction)
+  - [Module functionalities](https://github.com/HBRS-SDP/WS24-physiological-computing/tree/devel/HriPhysioLib)
+  - [Generating fabricated input data](https://github.com/HBRS-SDP/WS24-physiological-computing/tree/devel/HriPhysioLib/data)
+  - [ROS2 testing](https://github.com/HBRS-SDP/WS24-physiological-computing/tree/devel/ros2)
+  - [Contributors](https://github.com/HBRS-SDP/WS24-physiological-computing/edit/devel/README.md#contributors)
+
 ## Introduction
 HRI Physio Lib is a library developed by Austin Kothig for researchers in the field of physiological computing. The structure and basic implementation of this library can be found in the image below:
 ![HRI Physio Lib](https://github.com/user-attachments/assets/894adccd-6bd8-4dcc-8718-edef5a2d8647)
