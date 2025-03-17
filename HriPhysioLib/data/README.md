@@ -1,7 +1,7 @@
 
 # Synthetic Physiological Data Generator
 
-This project generates synthetic physiological data based on user input for sensor type, duration, and sampling rate. The generated data can be useful for testing and research purposes in physiological computing.
+This project generates synthetic physiological data based on user input for sensor type, duration, and sampling rate from [NeuroKit2 Library](https://github.com/neuropsychology/NeuroKit). The generated data can be useful for testing and research purposes in physiological computing.
 
 ## Steps to Setup and Run
 
