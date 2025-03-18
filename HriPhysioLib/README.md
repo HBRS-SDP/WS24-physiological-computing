@@ -2,7 +2,13 @@
 
 ## Core ⚓
 ## Manager ⚒️
+
+This module handles co-ordination between robot systems and physiological data coming from sensors. 
+
 ## Helper 🏹
+
+This module is responsible for parsing, converting, and formatting numerical data from the sensors. 
+
 ## Processing 🔭
 
 #### `biquadratic.cpp` 
