@@ -1,13 +1,6 @@
 # Functionaities of the Modules 🌟🌠
 
 ## Core ⚓
-## Manager ⚒️
-
-This module handles co-ordination between robot systems and physiological data coming from sensors. 
-
-## Helper 🏹
-
-This module is responsible for parsing, converting, and formatting numerical data from the sensors. 
 
 ## Processing 🔭
 
@@ -67,6 +60,13 @@ This file implements the YarpStreamer class, which manages data streaming using 
 #### `streamerFactory.cpp`
 This file implements the StreamerFactory class, which creates and returns instances of different streaming interfaces (LSL, ROS, YARP) based on the requested type.
   
+## Manager ⚒️
+
+This module handles co-ordination between robot systems and physiological data coming from sensors. 
+
+## Helper 🏹
+
+This module is responsible for parsing, converting, and formatting numerical data from the sensors. 
 
 
 
